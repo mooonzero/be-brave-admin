@@ -1,23 +1,21 @@
-package com.beBrave.admin.repository.model;
+package com.beBrave.admin.repository.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDate;
-
+@Entity
 @Getter
-@Builder
-@Table(name = "DESSERT_CATEGORY")
-public class DessertCategory {
+@Table(name = "USER")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private int id;
+    private String id;
 
-    @Column(name = "category_name", nullable = false)
-    private String categoryName;
+    @Column(name = "user_name", nullable = false, length = 10)
+    private String userName;
 
     @Column(name = "created_at", nullable = false)
     private LocalDate createdAt;

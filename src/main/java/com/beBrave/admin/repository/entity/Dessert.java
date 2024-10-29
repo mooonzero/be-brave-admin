@@ -1,13 +1,12 @@
-package com.beBrave.admin.repository.model;
+package com.beBrave.admin.repository.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDate;
 
+@Entity
 @Getter
-@Builder
 @Table(name = "DESSERT")
 public class Dessert {
 
@@ -34,4 +33,7 @@ public class Dessert {
     @Column(name = "isDeleted", nullable = false, columnDefinition = "tinyint(1) default 0")
     private Boolean deleted = false;
 
+    public Dessert() {
+
+    }
 }
