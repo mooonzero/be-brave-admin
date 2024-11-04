@@ -1,4 +1,4 @@
-package com.beBrave.admin.repository.entity;
+package com.beBrave.admin.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

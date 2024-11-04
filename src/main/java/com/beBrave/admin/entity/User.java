@@ -1,4 +1,4 @@
-package com.beBrave.admin.repository.entity;
+package com.beBrave.admin.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -14,7 +14,7 @@ public class User {
     @Column(name = "id", nullable = false)
     private String id;
 
-    @Column(name = "user_name", nullable = false, length = 10)
+    @Column(name = "name", nullable = false, length = 10)
     private String userName;
 
     @Column(name = "created_at", nullable = false)
