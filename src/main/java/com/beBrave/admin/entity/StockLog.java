@@ -13,7 +13,7 @@ public class StockLog {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "dessert_id",nullable = false)
     private int dessertId;
@@ -21,11 +21,11 @@ public class StockLog {
     @Column(name = "user_id",nullable = false)
     private int userId;
 
-    @Column(name = "stock_amount")
-    private Long amount = 0L;
-
     @Column(name = "log_type",nullable = false)
     private StockType stockType;
+
+    @Column(name = "stock_amount")
+    private Long amount = 0L;
 
     @Column(name = "log_date",nullable = false)
     private LocalDate logDate = LocalDate.now();

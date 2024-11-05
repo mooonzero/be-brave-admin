@@ -14,16 +14,24 @@ public class DessertSales {
     @Column(name = "id", nullable = false)
     private int id;
 
-    @Column(name = "sold_at", nullable = false)
-    private LocalDate soldAt;
-
     @Column(name = "dessert_id", nullable = false)
     private int dessertId;
 
-    @Column(name = "quantity")
-    private Long quantity = 0L;
+    @Column(name = "updated_at", nullable = false)
+    private LocalDate updatedAt;
+
+    @Column(name = "quantity", nullable = false)
+    private Long quantity ;
 
     @Column(name = "note")
     private String note;
 
+    public void updateDessertSales(Long newQuantity, LocalDate updateTime){
+        this.quantity = newQuantity;
+        this.updatedAt = updateTime;
+    }
+
+    public DessertSales(){
+        this.quantity = 0L;
+    }
 }
