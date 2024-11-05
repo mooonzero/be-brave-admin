@@ -7,11 +7,12 @@ public class DessertInfoDto {
     private String categoryName;
     private String dessertName;
     private String memo;
-    private int stock;
-    private int sales;
+    private Long stock;
+    private Long sales;
     private int safetyStock;
 
-    public DessertInfoDto(String categoryName, String dessertName, String memo, int stock, int sales, int safetyStock) {
+    public DessertInfoDto(String categoryName, String dessertName, String memo, Long stock,
+                          Long sales, int safetyStock) {
         this.categoryName = categoryName;
         this.dessertName = dessertName;
         this.memo = memo;
