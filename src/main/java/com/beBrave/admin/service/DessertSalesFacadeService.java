@@ -26,7 +26,7 @@ public class DessertSalesFacadeService {
 
         logRepository.save(stockLog);
 
-        DessertSales dessertSales = salesRepository.findByDessertId(stockLog.getDessertId())
+        DessertSales dessertSales = salesRepository.findByDessertId(stockLog.getInventoryId())
                 .orElseThrow(() -> new RuntimeException("DessertSales not found"));
 
         Long newStock;

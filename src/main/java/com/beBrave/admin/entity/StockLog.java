@@ -15,8 +15,8 @@ public class StockLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "dessert_id",nullable = false)
-    private int dessertId;
+    @Column(name = "inventory_id",nullable = false)
+    private int inventoryId;
 
     @Column(name = "user_id",nullable = false)
     private int userId;
