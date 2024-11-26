@@ -18,16 +18,6 @@ public abstract class StockLogRepositoryImpl implements StockLogRepository {
     private final JPAQueryFactory queryFactory;
     private final QStockLog qStockLog = QStockLog.stockLog;
 
-    @Override
-    public Long getDailySales(int dessertId, LocalDate date) {
 
-        return Optional.ofNullable(queryFactory.select(qStockLog.amount.sum())
-                        .where(qStockLog.dessertId.eq(dessertId)
-                                .and(qStockLog.stockType.eq(StockType.OUTBOUND))
-                                .and(qStockLog.logDate.eq(date)))
-                        .fetchOne())
-                .orElse(0L);
-
-    }
 }
 
