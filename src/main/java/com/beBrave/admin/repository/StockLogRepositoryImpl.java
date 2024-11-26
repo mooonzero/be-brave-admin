@@ -1,14 +1,11 @@
 package com.beBrave.admin.repository;
 
 import com.beBrave.admin.entity.QStockLog;
-import com.beBrave.admin.entity.StockType;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
-import java.util.Optional;
 
 @Repository
 @Transactional(readOnly = true)
