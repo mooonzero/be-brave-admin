@@ -1,18 +1,18 @@
 package com.beBrave.admin.repository;
 
-import com.beBrave.admin.entity.Dessert;
+import com.beBrave.admin.entity.Inventory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DessertRepository extends JpaRepository<Dessert, Integer> {
+public interface InventoryRepository extends JpaRepository<Inventory,Integer> {
 
 
-    Dessert findById(int id);
+    Inventory findById(int id);
 
-    Dessert findByDessertName(String dessertName);
+    Inventory findByInventoryName(String inventoryName);
 
-    Page<Dessert> findAll(Pageable pageable);
+    Page<Inventory> findAll(Pageable pageable);
 }

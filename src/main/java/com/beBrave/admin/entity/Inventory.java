@@ -22,6 +22,9 @@ public class Inventory {
     @Column(name = "category_id", nullable = false)
     private int categoryId;
 
+    @Column(name = "location", nullable = false)
+    private InventoryLocation inventoryLocation;
+
     @Column(name = "price", nullable = false)
     private BigDecimal price;
 
@@ -30,6 +33,9 @@ public class Inventory {
 
     @Column(name = "safety_stock", nullable = false)
     private int safetyStock = 10;
+
+    @Column(name = "supplier_id", nullable = false)
+    private int supplierId;
 
     @Column(name = "created_at", nullable = false)
     private LocalDate createdAt = LocalDate.now();

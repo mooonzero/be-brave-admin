@@ -1,11 +1,9 @@
 package com.beBrave.admin.repository;
 
-import com.beBrave.admin.entity.StockLog;
+import com.beBrave.admin.entity.Supplier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
-public interface StockLogRepository extends JpaRepository<StockLog, Long> {
-
+public interface SupplierRepository extends JpaRepository<Supplier,Integer> {
 }

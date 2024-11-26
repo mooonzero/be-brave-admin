@@ -1,7 +1,7 @@
 package com.beBrave.admin.controller;
 
 import com.beBrave.admin.entity.StockLog;
-import com.beBrave.admin.service.DessertSalesFacadeService;
+import com.beBrave.admin.service.StockFacadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/stock")
-public class DessertSalesController {
+public class StockController {
 
     @Autowired
-    private DessertSalesFacadeService facadeService;
+    private StockFacadeService stockFacadeService;
 
     @PostMapping(value = "/update")
     public String updateStock(@RequestBody StockLog stockLog){
-        return facadeService.saveLogAndSales(stockLog);
+        return stockFacadeService.updateStock(stockLog);
     }
+
 }
