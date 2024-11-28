@@ -1,8 +1,11 @@
 package com.beBrave.admin.entity;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.Setter;
 
 @Data
+@Builder
 public class InventoryInfoDto {
 
     private String categoryName;
@@ -13,14 +16,4 @@ public class InventoryInfoDto {
     private String supplierName;
     private String supplierUrl;
 
-    public InventoryInfoDto(String categoryName, String inventoryName, InventoryLocation location,
-                            Long stock, int safetyStock, String supplierName, String supplierUrl) {
-        this.categoryName = categoryName;
-        this.inventoryName = inventoryName;
-        this.location = location;
-        this.stock = stock;
-        this.safetyStock = safetyStock;
-        this.supplierName = supplierName;
-        this.supplierUrl = supplierUrl;
-    }
 }

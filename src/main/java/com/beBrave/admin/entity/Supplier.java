@@ -34,7 +34,15 @@ public class Supplier {
     private LocalDate updatedAt = LocalDate.now();
 
     @Column(name = "is_deleted")
-    private Boolean deleted = false;
+    private Boolean deleted;
+
+    public void updateSupplier(String name, String type, String phone, String url) {
+        this.supplierName = name;
+        this.type = type;
+        this.phone = phone;
+        this.url = url;
+        this.updatedAt = LocalDate.now();
+    }
 
 
 }
