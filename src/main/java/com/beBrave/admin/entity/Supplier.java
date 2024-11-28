@@ -16,7 +16,7 @@ public class Supplier {
     private int id;
 
     @Column(name = "name",nullable = false)
-    private String name;
+    private String SupplierName;
 
     @Column(name = "type",nullable = false)
     private String type;

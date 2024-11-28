@@ -12,6 +12,8 @@ public interface InventoryRepository extends JpaRepository<Inventory,Integer> {
 
     Inventory findById(int id);
 
+    Boolean existsByInventoryName(String inventoryName);
+
     Inventory findByInventoryName(String inventoryName);
 
     Page<Inventory> findAll(Pageable pageable);

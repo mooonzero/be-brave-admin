@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SupplierRepository extends JpaRepository<Supplier,Integer> {
+
+    Boolean existsBySupplierName(String supplierName);
+
 }

@@ -4,6 +4,7 @@ import com.beBrave.admin.entity.Inventory;
 import com.beBrave.admin.entity.InventoryInfoDto;
 import com.beBrave.admin.service.InventoryFacadeService;
 import com.beBrave.admin.service.InventoryService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Slf4j
 @RequestMapping("/inventory")
 public class InventoryController {
 
@@ -23,9 +25,8 @@ public class InventoryController {
     private InventoryFacadeService inventoryFacadeService;
 
     @PostMapping(value = "/add")
-    public ResponseEntity<Inventory> addInventory(@RequestBody Inventory inventory) {
-        Inventory savedInventory = inventoryService.addInventory(inventory);
-        return ResponseEntity.ok(savedInventory);
+    public String addInventory(@RequestBody Inventory inventory) {
+        return inventoryService.addInventory(inventory);
     }
 
     @GetMapping(value = "/get")

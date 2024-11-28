@@ -18,8 +18,13 @@ public class CategoryService {
     @Qualifier("categoryRepository")
     private CategoryRepository repository;
 
-    public Category addCategory(Category category) {
-        return repository.save(category);
+    public String addCategory(Category category) {
+        String categoryName = category.getCategoryName();
+        if (repository.existsByCategoryName(categoryName)) {
+            return "이미 등록된 카테고리 이름 입니다.";
+        }
+        repository.save(category);
+        return "카테고리 등록 성공";
     }
 
     public String getCategoryName(int id) {

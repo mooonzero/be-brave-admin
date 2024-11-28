@@ -11,8 +11,13 @@ public class InventoryService {
     @Autowired
     private InventoryRepository repository;
 
-    public Inventory addInventory(Inventory inventory){
-        return  repository.save(inventory);
+    public String addInventory(Inventory inventory){
+        String inventoryName = inventory.getInventoryName();
+        if (repository.existsByInventoryName(inventoryName)){
+            return  "이미 존재하는 부자재 이름입니다";
+        }
+
+        return  "부자재 등록 성공";
     }
 
     public Inventory getInventoryById(int id){

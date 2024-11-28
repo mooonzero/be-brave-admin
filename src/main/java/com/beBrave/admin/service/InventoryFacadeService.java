@@ -45,7 +45,7 @@ public class InventoryFacadeService {
                             inventory.getInventoryLocation(),
                             stock.getQuantity(),
                             inventory.getSafetyStock(),
-                            supplier.getName(),
+                            supplier.getSupplierName(),
                             supplier.getUrl()
                     );
                 }

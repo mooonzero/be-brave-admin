@@ -16,8 +16,8 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @PostMapping(value = "/add")
-    public void addCategory(@RequestBody Category category){
-        Category savedCategory = categoryService.addCategory(category);
+    public String addCategory(@RequestBody Category category){
+        return categoryService.addCategory(category);
     }
 
 
