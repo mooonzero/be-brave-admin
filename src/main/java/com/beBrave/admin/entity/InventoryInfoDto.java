@@ -2,7 +2,6 @@ package com.beBrave.admin.entity;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Setter;
 
 @Data
 @Builder
