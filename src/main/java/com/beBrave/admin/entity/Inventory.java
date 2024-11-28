@@ -16,12 +16,13 @@ public class Inventory {
     @Column(name = "id", nullable = false)
     private int id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "inventory_name", nullable = false)
     private String inventoryName;
 
     @Column(name = "category_id", nullable = false)
     private int categoryId;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "location", nullable = false)
     private InventoryLocation inventoryLocation;
 
