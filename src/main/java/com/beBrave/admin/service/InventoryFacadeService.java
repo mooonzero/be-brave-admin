@@ -39,15 +39,16 @@ public class InventoryFacadeService {
                             .orElse(new InventoryStock());
                     Supplier supplier = supplierRepository.getReferenceById(inventory.getSupplierId());
 
-                    return new InventoryInfoDto(
-                            categoryName,
-                            inventory.getInventoryName(),
-                            inventory.getInventoryLocation(),
-                            stock.getQuantity(),
-                            inventory.getSafetyStock(),
-                            supplier.getSupplierName(),
-                            supplier.getUrl()
-                    );
+
+                    return InventoryInfoDto.builder()
+                            .categoryName(categoryName)
+                            .inventoryName(inventory.getInventoryName())
+                            .location(inventory.getInventoryLocation())
+                            .stock(stock.getQuantity())
+                            .safetyStock(inventory.getSafetyStock())
+                            .supplierName(supplier.getSupplierName())
+                            .supplierUrl(supplier.getUrl())
+                            .build();
                 }
         );
     }

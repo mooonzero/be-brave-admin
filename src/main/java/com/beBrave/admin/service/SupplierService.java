@@ -1,9 +1,12 @@
 package com.beBrave.admin.service;
 
 import com.beBrave.admin.entity.Supplier;
+import com.beBrave.admin.entity.SupplierInfoDto;
 import com.beBrave.admin.repository.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class SupplierService {
@@ -18,6 +21,28 @@ public class SupplierService {
         }
         repository.save(supplier);
         return "발주처 등록 성공";
+    }
+
+
+    public Supplier getSupplier(int supplierId) {
+        return repository.getReferenceById(supplierId);
+    }
+
+    public String updateSupplier(SupplierInfoDto supplierInfo) {
+        int supplierId = supplierInfo.getSupplierId();
+
+        Optional<Supplier> supplier = repository.findById(supplierId);
+        String returnMessage = supplier.map(
+                s -> {s.updateSupplier(
+                        supplierInfo.getSupplierName(),
+                        supplierInfo.getType(),
+                        supplierInfo.getPhone(),
+                        supplierInfo.getUrl());
+                   return "발주처 업데이트 성공";
+                }
+        ).orElse("등록되지 않은 발주처입니다.");
+
+        return returnMessage;
     }
 
 }
