@@ -1,13 +1,19 @@
 package com.beBrave.admin.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @Entity
 @Getter
+@Builder
 @Table(name = "SUPPLIER")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Supplier {
 
     @Id
@@ -31,7 +37,7 @@ public class Supplier {
     private LocalDate createdAt;
 
     @Column(name = "updated_at")
-    private LocalDate updatedAt = LocalDate.now();
+    private LocalDate updatedAt;
 
     @Column(name = "is_deleted")
     private Boolean deleted;

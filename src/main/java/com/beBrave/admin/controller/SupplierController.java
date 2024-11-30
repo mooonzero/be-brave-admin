@@ -14,8 +14,8 @@ public class SupplierController {
     private SupplierService service;
 
     @PostMapping(value = "/add")
-    public String addSupplier(@RequestBody Supplier supplier) {
-        return service.addSupplier(supplier);
+    public String addSupplier(@RequestBody SupplierInfoDto infoDto) {
+        return service.addSupplier(infoDto);
     }
 
     @GetMapping(value = "/get")
