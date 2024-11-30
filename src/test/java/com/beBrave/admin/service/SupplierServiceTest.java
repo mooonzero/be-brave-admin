@@ -25,40 +25,60 @@ class SupplierServiceTest {
     SupplierService service;
 
     private Supplier supplier;
+    private SupplierInfoDto infoDto;
 
     @BeforeEach
     void setup(){
         MockitoAnnotations.openMocks(this);
-        supplier = new Supplier();
+        supplier = Supplier.builder().build();
+        infoDto = SupplierInfoDto.builder()
+                .supplierName("test")
+                .type("type")
+                .phone("1234")
+                .url("www/")
+                .build();
+
     }
     @Test
     void addSupplier() {
 
-        when(repository.existsBySupplierName(supplier.getSupplierName())).thenReturn(false);
+        //when
+        when(repository.existsBySupplierName(infoDto.getSupplierName())).thenReturn(false);
 
-        String result = service.addSupplier(supplier);
+        String result = service.addSupplier(infoDto);
 
         assertEquals("발주처 등록 성공",result);
 
-        verify(repository,times(1)).save(supplier);
+        verify(repository,times(1)).save(any(Supplier.class));
     }
 
     @Test
     void addSupplierAlreadyExist(){
-        when(repository.existsBySupplierName(supplier.getSupplierName())).thenReturn(true);
 
-        String result = service.addSupplier(supplier);
+        when(repository.existsBySupplierName(infoDto.getSupplierName())).thenReturn(true);
+
+        String result = service.addSupplier(infoDto);
 
         assertEquals("이미 등록된 발주처 입니다.",result);
 
         verify(repository,never()).save(any(Supplier.class));
     }
 
-//    @Test
-//    void getSupplier() {
-//
-//
-//    }
+    @Test
+    void getSupplier() {
+        int supplierId = 1;
+        Supplier supplierMock = Supplier.builder()
+                .id(1)
+                .supplierName("mock")
+                .build();
+        when(repository.getReferenceById(supplierId)).thenReturn(supplierMock);
+
+        Supplier result = service.getSupplier(supplierId);
+
+        assertEquals(result.getId(),supplierMock.getId());
+        verify(repository,times(1)).getReferenceById(supplierId);
+
+    }
 
     @Test
     void updateSupplier() {
@@ -86,7 +106,6 @@ class SupplierServiceTest {
                 .supplierName("updatedSupplier")
                 .build();
 
-        Supplier supplierMock = Mockito.mock(Supplier.class);
         when(repository.findById(2)).thenReturn(Optional.empty());
 
         String result = service.updateSupplier(supplierInfo);
