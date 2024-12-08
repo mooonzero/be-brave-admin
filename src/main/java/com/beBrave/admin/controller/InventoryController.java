@@ -1,6 +1,7 @@
 package com.beBrave.admin.controller;
 
 import com.beBrave.admin.entity.Inventory;
+import com.beBrave.admin.entity.InventoryDto;
 import com.beBrave.admin.entity.InventoryInfoDto;
 import com.beBrave.admin.service.InventoryFacadeService;
 import com.beBrave.admin.service.InventoryService;
@@ -24,7 +25,7 @@ public class InventoryController {
     private InventoryFacadeService inventoryFacadeService;
 
     @PostMapping(value = "/add")
-    public String addInventory(@RequestBody Inventory inventory) {
+    public String addInventory(@RequestBody InventoryDto inventory) {
         return inventoryService.addInventory(inventory);
     }
 

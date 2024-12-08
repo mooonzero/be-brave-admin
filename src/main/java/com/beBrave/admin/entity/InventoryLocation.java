@@ -20,4 +20,13 @@ public enum InventoryLocation {
         return value;
     }
 
+    public static InventoryLocation fromValue(String value) {
+        for (InventoryLocation location : InventoryLocation.values()) {
+            if (location.value.equals(value)) {
+                return location;
+            }
+        }
+        throw new IllegalArgumentException("No enum constant with value " + value);
+    }
+
 }
