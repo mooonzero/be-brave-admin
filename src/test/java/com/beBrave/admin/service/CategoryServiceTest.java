@@ -85,7 +85,7 @@ class CategoryServiceTest {
         String result = service.getCategoryName(invalidId);
 
         // then
-        assertEquals("Unknown Category", result);
+        assertEquals("Unknown category", result);
         verify(repository, times(1)).findById(invalidId);
 
     }
