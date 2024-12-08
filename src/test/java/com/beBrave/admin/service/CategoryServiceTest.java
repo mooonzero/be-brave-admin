@@ -1,7 +1,6 @@
 package com.beBrave.admin.service;
 
 import com.beBrave.admin.entity.Category;
-import com.beBrave.admin.entity.CategoryDto;
 import com.beBrave.admin.repository.CategoryRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,8 +25,6 @@ class CategoryServiceTest {
     CategoryService service;
 
     private Category category;
-
-    private CategoryDto categoryDto;
 
     @BeforeEach
     void setup(){
