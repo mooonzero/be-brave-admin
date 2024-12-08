@@ -1,6 +1,5 @@
 package com.beBrave.admin.controller;
 
-import com.beBrave.admin.entity.Category;
 import com.beBrave.admin.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,10 +15,9 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @PostMapping(value = "/add")
-    public String addCategory(@RequestBody Category category){
-        return categoryService.addCategory(category);
+    public String addCategory(@RequestParam String categoryName){
+        return categoryService.addCategory(categoryName);
     }
-
 
     @GetMapping(value = "/name")
     public String getCategoryName(@RequestParam int categoryId) {
